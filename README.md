@@ -52,11 +52,4 @@ spoljne Java klase koje sistem koristi.
 
 
 
-Za izdvajanje klasa koje pripadaju samom analiziranom sistemu korišćeno je - 
-
-self reject: \[ :each | each isStub ]
-
-
-
-![UML prikaz analiziranog sistema](screenshots/library-system-uml.png)
 
