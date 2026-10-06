@@ -58,5 +58,5 @@ self reject: \[ :each | each isStub ]
 
 
 
-!\[UML prikaz analiziranog sistema](screenshots/library-system-uml.png)
+![UML prikaz analiziranog sistema](screenshots/library-system-uml.png)
 
