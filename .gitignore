@@ -1,0 +1,8 @@
+# Original open-source project used as analysis input
+example/library-management-system-main/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
