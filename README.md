@@ -40,9 +40,23 @@ VerveineJ se koristi za ekstrakciju informacija iz Java izvornog koda i njihovo 
 
 \- example – lokalna kopija analiziranog open-source projekta
 
-\## Status
 
 
 
-Projekat je trenutno u fazi analize FAMIX modela. Naredni koraci obuhvataju izdvajanje relevantnih elemenata analiziranog sistema, ispitivanje njihovih međusobnih zavisnosti i izradu vizualizacija u Moose-u.
+
+\## Nakon uvoza FAMIX modela, Moose je identifikovao ukupno 32 klase. 
+
+Model, pored klasa implementiranih u analiziranom projektu, sadrži i 
+
+spoljne Java klase koje sistem koristi.
+
+
+
+Za izdvajanje klasa koje pripadaju samom analiziranom sistemu korišćeno je - 
+
+self reject: \[ :each | each isStub ]
+
+
+
+!\[UML prikaz analiziranog sistema](screenshots/library-system-uml.png)
 
