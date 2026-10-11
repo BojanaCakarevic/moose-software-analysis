@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.AccountManagementController">
+    <children>
+        <fx:include source="navbaradmin.fxml" />
+        <AnchorPane layoutX="90.0" prefHeight="826.0" prefWidth="1101.0" style="-fx-background-color: #f4f3f3;">
+            <children>
+                  <AnchorPane layoutX="213.0" layoutY="31.0" prefHeight="38.0" prefWidth="459.0">
+                      <children>
+                          <TextField fx:id="search_bar" layoutY="-1.0" prefHeight="38.0" prefWidth="460.0" promptText="   Search....." styleClass="form-control">
+                              <font>
+                                  <Font size="16.0" />
+                              </font>
+                          </TextField>
+                  <FontIcon fx:id="button_search" iconColor="#848484" iconLiteral="fas-search" iconSize="20" layoutX="430.0" layoutY="26.0" styleClass="button-search" text="">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontIcon>
+                          <FontIcon fx:id="button_delete_search" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="400" layoutY="26.0" visible="false">
+                              <styleClass>
+                                  <String fx:value="btn" />
+                                  <String fx:value="btn_delete_icon" />
+                              </styleClass></FontIcon>
+                      </children>
+                  </AnchorPane>
+                <MenuButton fx:id="button_option_search" layoutX="35.0" layoutY="30.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Username" textAlignment="CENTER" textFill="#666666">
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Username" />
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Fullname" />
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Email" />
+                  <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="User ID" />
+                    </items>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-default" />
+               </styleClass>
+                </MenuButton>
+            <StackPane layoutX="30.0" layoutY="94.0" prefWidth="1050.0">
+               <children>
+                      <AnchorPane fx:id="anchorpane_management" prefHeight="678.0" prefWidth="1024.0" styleClass="pane">
+                          <children>
+                              <Label graphicTextGap="10.0" layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold;" text="Account Management">
+                                  <font>
+                                      <Font size="20.0" />
+                                  </font>
+                           <graphic>
+                              <FontIcon iconLiteral="fas-users" />
+                           </graphic>
+                              </Label>
+                              <AnchorPane layoutY="70.0" prefHeight="50.0" prefWidth="996.0">
+                                  <children>
+                                      <GridPane layoutX="23.0" layoutY="11.0" prefHeight="27.0" prefWidth="997.0">
+                                          <columnConstraints>
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="53.98182752372811" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="390.0000457763672" minWidth="10.0" prefWidth="161.454514150068" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="419.5999755859375" minWidth="10.0" prefWidth="205.96360193173774" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="372.8000366210938" minWidth="10.0" prefWidth="231.27274654167775" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="351.7090225093625" minWidth="10.0" prefWidth="348.2181504935277" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                          <children>
+                                              <Text fill="#71717a" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="25.7457275390625">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#71717a" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" GridPane.columnIndex="1">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#71717a" layoutX="183.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name" GridPane.columnIndex="2">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#71717a" layoutX="466.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.columnIndex="3">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#71717a" layoutX="714.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" GridPane.columnIndex="4">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                          </children>
+                                      </GridPane>
+                                  </children>
+                              </AnchorPane>
+                        <Line endX="893.7999267578125" endY="-3.0517578125E-5" fill="#d5d5d7" layoutX="125.0" layoutY="115.0" opacity="0.53" startX="-102.20004272460938" startY="-3.0517578125E-5" stroke="#c4c4c4" />
+                              <ScrollPane hbarPolicy="NEVER" layoutX="20.0" layoutY="117.0" prefHeight="558.0" prefWidth="1015.0" style="-fx-background-insets: 0; -fx-background-color: transparent; -fx-background: white;">
+                                  <content>
+                                      <VBox fx:id="vbox_list_member" prefWidth="1001.0" style="-fx-background-color: white;">
+                                          <children>
+                                              <AnchorPane prefWidth="1001.0" styleClass="table-row">
+                                                  <children>
+                                                      <GridPane prefHeight="38.0" prefWidth="978.0">
+                                                          <columnConstraints>
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="56.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="390.0000457763672" minWidth="10.0" prefWidth="163.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="449.59999084472656" minWidth="10.0" prefWidth="202.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="408.79997558593743" minWidth="10.0" prefWidth="232.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="374.5999755859375" minWidth="10.0" prefWidth="326.0" />
+                                                          </columnConstraints>
+                                                          <rowConstraints>
+                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                          </rowConstraints>
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                                                  <font>
+                                                                      <Font size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                              <Text layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe" GridPane.columnIndex="2">
+                                                                  <font>
+                                                                      <Font size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                              <Text layoutX="183.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="john@example.com" GridPane.columnIndex="3">
+                                                                  <font>
+                                                                      <Font size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                <FlowPane hgap="15.0" GridPane.columnIndex="4">
+                                                   <children>
+                                                                      <Button graphicTextGap="8.0" mnemonicParsing="false" text="Delete" textFill="WHITE">
+                                                                          <font>
+                                                                              <Font name="System Bold" size="15.0" />
+                                                                          </font>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-danger" />
+                                                         </styleClass>
+                                                         <graphic>
+                                                            <FontIcon iconColor="WHITE" iconLiteral="fas-trash" />
+                                                         </graphic>
+                                                                      </Button>
+                                                                      <Button graphicTextGap="8.0" mnemonicParsing="false" text="Update" textFill="WHITE">
+                                                                          <font>
+                                                                              <Font name="System Bold" size="15.0" />
+                                                                          </font>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-primary" />
+                                                         </styleClass>
+                                                         <graphic>
+                                                            <FontIcon iconColor="WHITE" iconLiteral="fas-edit" />
+                                                         </graphic>
+                                                                      </Button>
+                                                      <Button graphicTextGap="8.0" mnemonicParsing="false" text="Detail" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="15.0" />
+                                                         </font>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-default" />
+                                                         </styleClass>
+                                                         <graphic>
+                                                            <FontIcon iconLiteral="fas-info" />
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </FlowPane>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="johm0m" GridPane.columnIndex="1">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Text>
+                                                          </children>
+                                                      </GridPane>
+                                                  </children>
+                                                  <VBox.margin>
+                                                      <Insets />
+                                                  </VBox.margin>
+                                              </AnchorPane>
+                                          </children>
+                                      </VBox>
+                                  </content>
+                              </ScrollPane>
+                              <Button fx:id="button_add" graphicTextGap="10.0" layoutX="855.0" layoutY="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="170.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);" text="Add Account" textFill="WHITE">
+                                  <font>
+                                      <Font name="System Bold" size="16.0" />
+                                  </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-user-plus" />
+                           </graphic>
+                              </Button>
+                          <AnchorPane fx:id="loading" layoutX="500.0" layoutY="20.0" prefHeight="46.0" prefWidth="50" visible="false" />
+                              <MenuButton fx:id="button_option_sort" layoutX="700.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Sort Option" textFill="#666666">
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Username" />
+                                      <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Email" />
+                                      <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Fullname" />
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="User ID" />
+                                  </items>
+                                  <font>
+                                      <Font size="14.0" />
+                                  </font>
+                                  <styleClass>
+                                      <String fx:value="btn" />
+                                      <String fx:value="btn-default" />
+                                  </styleClass>
+                              </MenuButton>
+                        <MenuButton fx:id="button_role" layoutX="282.0" layoutY="15.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="104.0" text="MEMBER" textAlignment="CENTER" textFill="#666666">
+                           <items>
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 12; -fx-text-fill: #333333; -fx-pref-width: 200; -fx-cursor: hand;" text="MEMBER" />
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 10; -fx-font-size: 12; -fx-text-fill: #333333; -fx-pref-width: 200; -fx-cursor: hand;" text="ADMIN" />
+                           </items>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-default" />
+                           </styleClass>
+                        </MenuButton>
+                        <AnchorPane layoutX="20.0" layoutY="673.0" prefHeight="50.0" prefWidth="1007.0">
+                           <children>
+                              <HBox fx:id="hBox_Pages" alignment="CENTER" layoutX="317.0" layoutY="9.0" prefHeight="34.0" prefWidth="353.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="&lt;" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="1" />
+                                    <Button layoutX="90.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="2" />
+                                    <Button layoutX="130.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="...." />
+                                    <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="9" />
+                                    <Button layoutX="292.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="10" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="&gt;" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="text_pages" alignment="CENTER" layoutX="657.0" layoutY="7.0" prefHeight="34.0" prefWidth="36.0" styleClass="form-control" text="1" />
+                              <Text fx:id="total_pages" fill="#4e4e4e" layoutX="699.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/200">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                          </children>
+                      </AnchorPane>
+               </children>
+            </StackPane>
+                <fx:include source="dropdown.fxml" />
+            </children>
+        </AnchorPane>
+      <AnchorPane fx:id="anchorpane_detail" prefHeight="826.4726986114259" prefWidth="1200.0" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+             <AnchorPane layoutX="87.0" layoutY="50.0" prefHeight="726.0" prefWidth="1025.0" styleClass="modal-content">
+                 <children>
+                     <AnchorPane layoutX="14.0" layoutY="240.0" prefHeight="50.0" prefWidth="996.0">
+                         <children>
+                             <GridPane layoutX="14.0" layoutY="11.0" prefHeight="27.0" prefWidth="950.0">
+                                 <columnConstraints>
+                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="177.52724555906207" />
+                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="390.0000457763672" minWidth="10.0" prefWidth="217.0545860404025" />
+                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="419.5999755859375" minWidth="10.0" prefWidth="165.5636514257007" />
+                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="200.4726993781478" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="332.0" minWidth="10.0" prefWidth="196.2363632126487" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                     <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                     <Text fill="#71717a" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="25.7457275390625">
+                                         <font>
+                                             <Font name="System Bold" size="16.0" />
+                                         </font>
+                                     </Text>
+                                     <Text fill="#71717a" layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Name Book" GridPane.columnIndex="1">
+                                         <font>
+                                             <Font name="System Bold" size="16.0" />
+                                         </font>
+                                     </Text>
+                                     <Text fill="#71717a" layoutX="183.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Day " GridPane.columnIndex="2">
+                                         <font>
+                                             <Font name="System Bold" size="16.0" />
+                                         </font>
+                                     </Text>
+                                     <Text fill="#71717a" layoutX="714.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="4">
+                                         <font>
+                                             <Font name="System Bold" size="16.0" />
+                                         </font>
+                                     </Text>
+                              <Text fill="#71717a" layoutX="387.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Day" GridPane.columnIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Text>
+                                 </children>
+                             </GridPane>
+                         </children>
+                     </AnchorPane>
+                  <Line endX="996.1363525390625" endY="290.6181945800781" fill="#d5d5d7" opacity="0.53" startX="29.82012939453125" startY="290.6181945800781" stroke="#c4c4c4" />
+                     <ScrollPane hbarPolicy="NEVER" layoutX="30.0" layoutY="291.0" prefHeight="406.0" prefWidth="969.0" style="-fx-background-insets: 0; -fx-background-color: transparent; -fx-background: white;">
+                         <content>
+                             <VBox fx:id="vbox_list_history" prefHeight="52.0" prefWidth="943.0" style="-fx-background-color: white;">
+                                 <children>
+                                     <AnchorPane prefWidth="931.0" styleClass="table-row">
+                                         <children>
+                                             <GridPane layoutX="14.0" prefHeight="38.0" prefWidth="927.0">
+                                                 <columnConstraints>
+                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="180.200048828125" />
+                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="390.0000457763672" minWidth="10.0" prefWidth="240.19995117187497" />
+                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="449.59999084472656" minWidth="10.0" prefWidth="186.60002441406243" />
+                                                     <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="374.5999755859375" minWidth="10.0" prefWidth="232.19997558593752" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="374.5999755859375" minWidth="10.0" prefWidth="195.4000122070313" />
+                                                 </columnConstraints>
+                                                 <rowConstraints>
+                                                     <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                 </rowConstraints>
+                                                 <children>
+                                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                                         <font>
+                                                             <Font size="16.0" />
+                                                         </font>
+                                                     </Text>
+                                                     <Text layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="John Doe" GridPane.columnIndex="1">
+                                                         <font>
+                                                             <Font size="16.0" />
+                                                         </font>
+                                                     </Text>
+                                                     <Text layoutX="183.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2/3/2024" GridPane.columnIndex="2">
+                                                         <font>
+                                                             <Font size="16.0" />
+                                                         </font>
+                                                     </Text>
+                                          <Text layoutX="430.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2/4/2024" GridPane.columnIndex="3">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <VBox alignment="CENTER" prefWidth="126.0" styleClass="status-borrow-box" GridPane.columnIndex="4">
+                                             <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="status-borrow-box" text="Borrowing" />
+                                             </children>
+                                          </VBox>
+                                                 </children>
+                                             </GridPane>
+                                         </children>
+                                         <VBox.margin>
+                                             <Insets top="10.0" />
+                                         </VBox.margin>
+                                     </AnchorPane>
+                                 </children>
+                             </VBox>
+                         </content>
+                     </ScrollPane>
+                     <Button fx:id="back_detail" graphicTextGap="8.0" layoutX="925.0" layoutY="14.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="85.0" text="Close" textFill="WHITE">
+                         <font>
+                             <Font size="14.0" />
+                         </font>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-default" />
+                     </styleClass>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-times" />
+                     </graphic>
+                     </Button>
+                  <GridPane layoutX="60.0" layoutY="60.0" prefHeight="128.0" prefWidth="280.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.60003662109375" minWidth="10.0" prefWidth="111.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="623.8000122070312" minWidth="10.0" prefWidth="186.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Full Name">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="full_name" strokeType="OUTSIDE" strokeWidth="0.0" text="Mai Duc Duy" wrappingWidth="185.33668899536133" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="user_name" layoutX="117.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duymai" wrappingWidth="189.33681106567383" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="email_user" layoutX="117.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="maiduy@gmail.com" wrappingWidth="186.13679885864258" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="id_user" strokeType="OUTSIDE" strokeWidth="0.0" text="10" wrappingWidth="155.73678970336914" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </GridPane>
+                  <Label graphicTextGap="10.0" layoutX="38.0" layoutY="23.0" style="-fx-font-weight: bold;" text="Information">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-portrait" />
+                     </graphic>
+                  </Label>
+                  <Label graphicTextGap="10.0" layoutX="38.0" layoutY="208.0" prefHeight="31.0" prefWidth="145.0" style="-fx-font-weight: bold;" text="History">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-list-alt" />
+                     </graphic>
+                  </Label>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" layoutX="675.0" layoutY="70.0" prefHeight="108.0" prefWidth="305.0">
+                     <children>
+                        <AnchorPane prefHeight="108.0" prefWidth="126.0">
+                           <children>
+                              <Text layoutX="1.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrowing" textAlignment="CENTER" wrappingWidth="125.67272291451445">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="account_num_borrowing" layoutX="7.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="69" textAlignment="CENTER" wrappingWidth="110.04540729522705">
+                                 <font>
+                                    <Font name="System Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <styleClass>
+                              <String fx:value="user-stat-box" />
+                              <String fx:value="user-stat-box-primary" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="108.0" prefWidth="126.0">
+                           <children>
+                              <Text layoutX="1.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Overdue" textAlignment="CENTER" wrappingWidth="125.67272291451445">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="account_num_overdue" layoutX="7.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="CENTER" wrappingWidth="110.04540729522705">
+                                 <font>
+                                    <Font name="System Bold" size="40.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <styleClass>
+                              <String fx:value="user-stat-box" />
+                              <String fx:value="user-stat-box-danger" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </FlowPane>
+                  <AnchorPane fx:id="history_loading" layoutX="397.0" layoutY="370.0" prefHeight="195.0" prefWidth="201.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/200x200_black.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="11.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading user history...">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                 </children>
+             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorpane_addaccount" prefHeight="826.4726986114259" prefWidth="1200.0" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="261.0" layoutY="74.0" prefHeight="678.0" prefWidth="678.0" styleClass="modal-content">
+               <children>
+                  <AnchorPane layoutX="125.0" layoutY="37.0" prefHeight="65.0" prefWidth="428.0" styleClass="modal-tab">
+                     <children>
+                        <Text fx:id="account_modal_label" fill="#7d7d7d" layoutX="112.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Account">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="button_update_form" graphicTextGap="8.0" layoutX="354.0" layoutY="600.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="260.0" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-primary" />
+                     </styleClass>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-user-edit" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="button_cancel" graphicTextGap="8.0" layoutX="61.0" layoutY="600.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="260.0" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-default" />
+                     </styleClass>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-times" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="button_add_form" graphicTextGap="8.0" layoutX="354.0" layoutY="600.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="260.0" text="Add account" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-primary" />
+                     </styleClass>
+                     <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-user-plus" />
+                     </graphic>
+                  </Button>
+                  <FlowPane layoutX="61.0" layoutY="135.0" vgap="5.0">
+                     <children>
+                        <AnchorPane prefHeight="82.0" prefWidth="554.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="7.0" text="Full Name">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textfield_fullname" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Enter full name" styleClass="form-control" />
+                              <FontIcon fx:id="button_delete_fullname" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="521.0" layoutY="61.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="82.0" prefWidth="554.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="7.0" text="User Name">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textfield_username" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Enter username" styleClass="form-control" />
+                              <FontIcon fx:id="button_delete_username" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="521.0" layoutY="61.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="82.0" prefWidth="554.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="7.0" text="Email">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textfield_email" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Enter email" styleClass="form-control" />
+                              <FontIcon fx:id="button_delete_email" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="521.0" layoutY="61.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="82.0" prefWidth="554.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="7.0" text="New password">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordfield_password" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Enter password" styleClass="form-control" />
+                              <TextField fx:id="textfield_password" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Enter password" styleClass="form-control" visible="false" />
+                              <FontIcon fx:id="button_delete_password" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="521.0" layoutY="61.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="82.0" prefWidth="554.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="7.0" text="Confirm Password">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField fx:id="passwordfield_confirm_password" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Confirm account password" styleClass="form-control" />
+                              <TextField fx:id="textfield_confirm_password" layoutX="5.0" layoutY="32.0" prefHeight="46.0" prefWidth="544.0" promptText="Confirm account password" styleClass="form-control" visible="false" />
+                              <FontIcon fx:id="button_delete_confirm_password" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="521.0" layoutY="61.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </FlowPane>
+                  <Text fx:id="announcement" fill="#e21c0e" layoutX="66.0" layoutY="590.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" visible="false" wrappingWidth="544.0">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="toggle_password" fitHeight="36.0" fitWidth="26.0" layoutX="619.0" layoutY="436.0" opacity="0.54" pickOnBounds="true" preserveRatio="true" styleClass="btn">
+                     <image>
+                        <Image url="@../img/closepassword.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="toggle_confirm_password" fitHeight="36.0" fitWidth="26.0" layoutX="619.0" layoutY="525.0" opacity="0.54" pickOnBounds="true" preserveRatio="true" styleClass="btn">
+                     <image>
+                        <Image url="@../img/closepassword.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+        <ScrollPane fx:id="scroll_result_search" layoutX="298.0" layoutY="70.0" maxHeight="420.0" prefWidth="447.0" style="-fx-background-color: transparent;" visible="false">
+            <VBox fx:id="vbox_result_search" prefWidth="428.0" style="-fx-background-color: white;" styleClass="suggestions" />
+        </ScrollPane>
+    </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+      <URL value="@../css/bookmanagement.css" />
+      <URL value="@../css/accountmanagement.css" />
+       <URL value="@../css/pages.css" />
+   </stylesheets>
+</AnchorPane>

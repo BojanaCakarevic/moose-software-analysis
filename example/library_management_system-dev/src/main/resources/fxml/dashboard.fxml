@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.DashboardController">
+   <children>
+      <fx:include source="navbar.fxml" />
+      <AnchorPane layoutX="90.0" prefHeight="800.0" prefWidth="1110.0" style="-fx-background-color: #f4f3f3;">
+         <children>
+            <Label layoutX="57.0" layoutY="32.0" prefHeight="39.0" prefWidth="144.0" style="-fx-font-weight: bold;" text="Dashboard" textFill="#5f43b2">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <StackPane layoutX="57.0" layoutY="87.0" style="-fx-background-color: transparent;">
+               <children>
+                  <AnchorPane prefHeight="250.0" prefWidth="702.0" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-background-color: transparent;">
+                     <children>
+                        <ImageView fx:id="dashboard_gif" fitHeight="311.0" fitWidth="718.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+<!--                           <image>-->
+<!--                              <Image url="@../img/bookgifsmall.gif" />-->
+<!--                           </image>-->
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+            <AnchorPane layoutX="52.0" layoutY="413.0" prefHeight="250.0" prefWidth="712.0">
+               <children>
+                  <AnchorPane fx:id="empty_continue_reading" layoutX="16.0" layoutY="34.0" prefHeight="200.0" prefWidth="681.0" visible="false">
+                     <children>
+                        <Text fill="#666666" layoutX="100.0" layoutY="176.0" opacity="0.67" strokeType="OUTSIDE" strokeWidth="0.0" text="No books in progress. Start a new book now!" wrappingWidth="499.021484375">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="readinggif" fitHeight="150.0" fitWidth="305.0" layoutX="199.0" pickOnBounds="true" preserveRatio="true">
+<!--                           <image>-->
+<!--                              <Image url="@../img/readinggirl.gif" />-->
+<!--                           </image>-->
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Text fill="#8c77d3" layoutX="7.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <GridPane fx:id="book_gridpane" alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                        <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                        <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="814.0" layoutY="367.0" prefHeight="286.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" />
+            <AnchorPane fx:id="plan_to_read" layoutX="66.0" layoutY="688.0" prefHeight="85.0" prefWidth="215.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 3, 3);">
+               <children>
+                  <Text fx:id="num_plan" fill="#5f43b2" layoutX="90.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="num_text" text="25">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#5f43b2" layoutX="90.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Plan To Borrow">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <FontIcon iconColor="#5f43b2" iconLiteral="fas-book" iconSize="40" layoutX="30.0" layoutY="60.0" styleClass="icon" />
+               </children>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="ptb" />
+               </styleClass>
+            </AnchorPane>
+            <AnchorPane fx:id="borrowed_books" layoutX="309.0" layoutY="688.0" prefHeight="85.0" prefWidth="215.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 3, 3);">
+               <children>
+                  <Text fx:id="num_borrowing" fill="#dd2424" layoutX="90.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="num_text" text="20">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#dd2424" layoutX="90.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Borrowed Books">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <FontIcon iconColor="#dd2424" iconLiteral="fas-book-reader" iconSize="40" layoutX="30.0" layoutY="60.0" styleClass="icon" />
+               </children>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="borrowed" />
+               </styleClass>
+            </AnchorPane>
+            <AnchorPane fx:id="returned_books" layoutX="553.0" layoutY="688.0" prefHeight="85.0" prefWidth="215.0" style="-fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 3, 3);">
+               <children>
+                  <Text fx:id="num_returned" fill="#19be2c" layoutX="90.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="num_text" text="7">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#19be2c" layoutX="90.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Returned Book">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <FontIcon iconColor="#19be2c" iconLiteral="fas-bookmark" iconSize="40" layoutX="30.0" layoutY="60.0" styleClass="icon" />
+               </children>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="returned" />
+               </styleClass>
+            </AnchorPane>
+            <AnchorPane fx:id="right_panel" layoutX="805.0" layoutY="81.0" prefHeight="663.0" prefWidth="268.0">
+               <children>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="loading" layoutX="550.0" layoutY="50.0" prefHeight="46.0" prefWidth="50" />
+            <fx:include source="dropdown.fxml" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

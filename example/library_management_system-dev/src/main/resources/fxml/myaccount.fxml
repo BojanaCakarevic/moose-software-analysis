@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.MyAccountController">
+   <children>
+      <fx:include source="navbar.fxml" />
+      <AnchorPane layoutX="90.0" prefHeight="800.0" prefWidth="1110.0" style="-fx-background-color: #f4f3f3;">
+         <children>
+            <StackPane layoutX="190.0" layoutY="100.0" prefHeight="625.0" prefWidth="753.0">
+               <children>
+                  <AnchorPane fx:id="update_info_pane" prefHeight="618.0" prefWidth="753.0" styleClass="pane" visible="false">
+                     <children>
+                        <Button fx:id="update_info_back" layoutX="20.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #e0e0e0, #73777a);" text=" Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-times-circle" />
+                           </graphic>
+                        </Button>
+                        <Label layoutX="20.0" layoutY="20.0" prefHeight="30.0" prefWidth="256.0" style="-fx-font-weight: bold;" text="   Change Personal Info" textFill="#5f43b2">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontIcon iconColor="#5f43b2" iconLiteral="fas-user-edit" iconSize="20" text="" wrappingWidth="13.500000000000057" />
+                           </graphic>
+                        </Label>
+                        <AnchorPane layoutX="5.0" layoutY="220.0" prefHeight="308.0" prefWidth="732.0">
+                           <children>
+                              <AnchorPane prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Full Name" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_fullname" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" promptText="Enter your full name" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_full_name" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="696.0" layoutY="63.0" text="">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="100.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Username" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_username" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" promptText="Enter your user name" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_user_name" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="696.0" layoutY="63.0">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutY="200.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Email" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="update_email" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" promptText="Enter your email" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_email" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="696.0" layoutY="63.0" text="">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="update_button" layoutX="385.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);" text="Update Info" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                        </Button>
+                        <Text fx:id="update_info_message" fill="RED" layoutX="19.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="710.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="305.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/admin.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="change_password_pane" layoutX="10.0" layoutY="10.0" prefHeight="552.0" prefWidth="621.0" styleClass="pane" visible="false">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="305.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/admin.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="20.0" style="-fx-font-weight: bold;" text=" Change Password" textFill="#5f43b2">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontIcon iconColor="#5f43b2" iconLiteral="fas-key" iconSize="20" text="" />
+                           </graphic>
+                        </Label>
+                        <AnchorPane layoutX="5.0" layoutY="220.0" prefHeight="308.0" prefWidth="745.0">
+                           <children>
+                              <AnchorPane layoutX="4.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Current Password" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="current_password" layoutX="10.0" layoutY="36.0" prefHeight="40.0" prefWidth="657.0" promptText="Enter your current password" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_password" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="640.0" layoutY="62.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                    <ImageView fx:id="toggle_current_password" fitHeight="34.0" fitWidth="27.0" layoutX="689.0" layoutY="40.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/closepassword.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="4.0" layoutY="200.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Confirm New Password" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="confirm_password" layoutX="10.0" layoutY="36.0" prefHeight="40.0" prefWidth="657.0" promptText="Confirm your new password" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_confirm_new_password" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="640.0" layoutY="62.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                    <ImageView fx:id="toggle_confirm_password" fitHeight="34.0" fitWidth="27.0" layoutX="689.0" layoutY="40.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/closepassword.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="4.0" layoutY="100.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="New Password" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="new_password" layoutX="10.0" layoutY="36.0" prefHeight="40.0" prefWidth="657.0" promptText="Enter your new password" styleClass="form-control" />
+                                    <ImageView fx:id="toggle_new_password" fitHeight="34.0" fitWidth="27.0" layoutX="689.0" layoutY="40.0" opacity="0.54" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/closepassword.png" />
+                                       </image>
+                                    </ImageView>
+                                    <FontIcon fx:id="button_delete_new_password" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="640.0" layoutY="63.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass></FontIcon>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="change_password_back" layoutX="20.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #e0e0e0, #73777a);" text=" Cancel" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-times-circle" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="change_button" layoutX="385.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);" text="Update Password" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                        </Button>
+                        <Text fx:id="change_password_message" fill="RED" layoutX="19.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="701.63671875">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="info_pane" layoutX="10.0" layoutY="10.0" prefHeight="620.0" prefWidth="750.0" styleClass="pane">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="305.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/admin.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="20.0" layoutY="20.0" style="-fx-font-weight: bold;" text="   My Account" textFill="#5f43b2">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <graphic>
+                              <FontIcon iconColor="#5f43b2" iconLiteral="fas-user-circle" iconSize="24" wrappingWidth="13.5" />
+                           </graphic>
+                        </Label>
+                        <Button fx:id="update_info" layoutX="20.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);" text="  Change personal information" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-user-edit" iconSize="16" text="" wrappingWidth="13.500000000000057" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="change_password" layoutX="385.0" layoutY="550.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="345.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);" text="  Change Password" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-key" iconSize="16" />
+                           </graphic>
+                        </Button>
+                        <AnchorPane layoutX="10.0" layoutY="228.0" prefHeight="288.0" prefWidth="734.0">
+                           <children>
+                              <AnchorPane prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Full Name" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="info_fullname" accessibleRole="TEXT_FIELD" editable="false" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" style="-fx-background-color: transparent; -fx-border-color: rgba(95, 67, 178, 0.5); -fx-border-radius: 10;" text="Mai Duy Duy">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="1.0" layoutY="100.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Username" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="info_username" accessibleRole="TEXT_FIELD" editable="false" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" style="-fx-background-color: transparent; -fx-border-color: rgba(95, 67, 178, 0.5); -fx-border-radius: 10;" text="Duy Mai">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></TextField>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="4.0" layoutY="200.0" prefHeight="86.0" prefWidth="730.0">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="6.0" text="Email" textFill="#5f43b2">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="info_email" accessibleRole="TEXT_FIELD" editable="false" layoutX="12.0" layoutY="36.0" prefHeight="40.0" prefWidth="710.0" style="-fx-background-color: transparent; -fx-border-color: rgba(95, 67, 178, 0.5); -fx-border-radius: 10;" text="Duymai@gmail.com">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font></TextField>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+            <fx:include source="dropdown.fxml" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loading" layoutX="650" layoutY="50.0" prefHeight="46.0" prefWidth="50" />
+   </children>
+</AnchorPane>

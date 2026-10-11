@@ -1,0 +1,10 @@
+.book-tab {
+    -fx-background-color: #f2ecff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+.book-tab-unactive {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #5f43b2;
+}

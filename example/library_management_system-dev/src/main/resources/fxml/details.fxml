@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="750.0" prefWidth="1200.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.BookDetailController">
+   <children>
+      <fx:include source="navbar.fxml" />
+      <AnchorPane layoutX="90.0" prefHeight="783.0" prefWidth="1100.0" style="-fx-background-color: #f4f3f3;">
+         <children>
+            <Button fx:id="button_back" graphicTextGap="10.0" layoutX="26.0" layoutY="33.0" mnemonicParsing="false" text="Go back">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-primary" />
+               </styleClass>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <graphic>
+                  <FontIcon iconColor="WHITE" iconLiteral="fas-arrow-circle-left" />
+               </graphic>
+            </Button>
+            <ScrollPane focusTraversable="false" layoutY="80.0" prefHeight="720.0" prefWidth="1100.0" style="-fx-background-color: transparent; -fx-border-color: transparent;">
+               <content>
+                  <AnchorPane prefHeight="1006.0" prefWidth="1080.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="7.0" prefHeight="666.0" prefWidth="388.0" style="-fx-border-color: #e4e4e7; -fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: white;" styleClass="pane">
+                           <children>
+                              <ImageView fx:id="img_book" fitHeight="303.0" fitWidth="195.0" layoutX="97.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/Thrillers.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="button_borrow" layoutX="39.0" layoutY="448.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="310.0" text="Borrow" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="button_plantoborrow" layoutX="39.0" layoutY="510.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="310.0" text="Plan to borrow" textFill="#333333" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-default" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="button_return" layoutX="39.0" layoutY="448.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="310.0" text="Return" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-success" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="button_overdue" layoutX="39.0" layoutY="448.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="310.0" text="Overdue" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-danger" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="button_share" graphicTextGap="8.0" layoutX="39.0" layoutY="573.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="310.0" text="Share">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <graphic>
+                                    <FontIcon fill="#404040" iconLiteral="fas-share" selectionStart="2" />
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-default" />
+                                 </styleClass>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <AnchorPane fx:id="reading_progress" layoutX="50.0" layoutY="513.0">
+                                 <children>
+                                    <Text layoutX="-7.0" layoutY="7.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pages read:" textOrigin="TOP">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fx:id="total_pages" fill="#4e4e4e" layoutX="172.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/ 199" textOrigin="TOP">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="pages_read_input" layoutX="95.0" layoutY="1.0" prefHeight="35.0" prefWidth="70.0" />
+                                    <Text fx:id="pages_read" fill="#4e4e4e" layoutX="112.0" layoutY="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="69" textOrigin="TOP">
+                                       <font>
+                                          <Font name="System Bold" size="20.0" />
+                                       </font>
+                                    </Text>
+                                    <Button fx:id="button_accept_progress" layoutX="268.0" layoutY="5.0" mnemonicParsing="false" text="✓">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-primary" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="button_cancel_progress" layoutX="233.0" layoutY="5.0" mnemonicParsing="false" text="✕">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-default" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="button_edit_progress" layoutX="233.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="63.0" text="Edit" visible="false">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-default" />
+                                       </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="rating_bar" layoutX="134.0" layoutY="375.0" prefHeight="50.0" prefWidth="120.0" />
+                              <VBox alignment="CENTER" fillWidth="false" layoutX="46.0" layoutY="330.0" prefHeight="45.0" prefWidth="295.0">
+                                 <children>
+                                    <TextFlow fx:id="quantity_label" style="-fx-background-color: #f4f4f5; -fx-padding: 2 15; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #e4e4e7;" textAlignment="CENTER">
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10 copies available">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </TextFlow>
+                                 </children>
+                              </VBox>
+                              <Text fx:id="borrow_message" fill="#e40505" layoutX="45.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" textOrigin="TOP" wrappingWidth="310.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="420.0" layoutY="7.0" prefHeight="666.0" prefWidth="643.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e4e4e7;" styleClass="pane">
+                           <children>
+                              <Label fx:id="title_book" layoutX="29.0" layoutY="14.0" prefHeight="40.0" prefWidth="586.0" style="-fx-font-weight: bold;-fx-font-size:28" text="He Start It" textFill="#5f43b2">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="13.0" layoutY="70.0" prefHeight="66.0" prefWidth="608.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" styleClass="book-tab">
+                                 <children>
+                                    <Button fx:id="buttonoverview" layoutX="89.0" layoutY="10.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="179.0" text="Overview" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-primary" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="buttoncomment" layoutX="350.0" layoutY="10.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="169.0" text="Comment" textFill="#666666">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="book-tab-unactive" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorpane_comment" layoutY="135.0" prefHeight="498.0" prefWidth="610.0">
+                                 <children>
+                                    <ScrollPane hbarPolicy="NEVER" layoutX="19.0" layoutY="10.0" prefHeight="392.0" prefWidth="601.0" style="-fx-background-color: transparent; -fx-border-color: #D3D3D3; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 1;">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="592.0" style="-fx-background-color: white;">
+                                             <children>
+                                                <VBox fx:id="vbox_comment" minHeight="389.0" prefWidth="583.0" style="-fx-background-color: linear-gradient(to right, #5f43b2, #8a6bbf); -fx-background-radius: 10; -fx-border-radius: 10;">
+                                                   <children>
+                                                      <AnchorPane prefHeight="141.0" prefWidth="578.0" style="-fx-border-color: #dddddd; -fx-border-radius: 10; -fx-background-color: white; -fx-background-radius: 10;">
+                                                         <children>
+                                                            <ImageView fitHeight="46.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/admin.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <Text fill="#666666" layoutX="70.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mai Duy">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Text>
+                                                            <ImageView fitHeight="30.0" fitWidth="65.0" layoutX="69.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../img/Rank.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                            <Text layoutX="14.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This book kept me on the edge of my seat! The twists and turns were unexpected, and the character development was superb. I couldn't put it down!" textAlignment="JUSTIFY" wrappingWidth="526.4000610351563">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Text>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </AnchorPane>
+                                                   </children>
+                                                   <padding>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </padding>
+                                                </VBox>
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </ScrollPane>
+                                    <AnchorPane layoutX="10.0" layoutY="420.0" prefHeight="75.0" prefWidth="576.0" styleClass="comment-pane">
+                                       <children>
+                                          <AnchorPane fx:id="comment_frame" layoutX="11.0" layoutY="-1.0" prefHeight="104.0" prefWidth="598.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="comment-box">
+                                             <children>
+                                                <AnchorPane fx:id="rating_comment_bar" layoutX="7.0" layoutY="64.0" prefHeight="38.0" prefWidth="168.0" />
+                                                <Line fx:id="line_comment" endX="453.0" endY="1.0" layoutX="141.0" layoutY="64.0" startX="-136.00003051757812" startY="1.0" styleClass="line-comment-box" />
+                                                <TextArea fx:id="comment_box" layoutX="7.0" layoutY="4.0" prefHeight="56.0" prefWidth="583.0" style="-fx-background-color: transparent;" wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextArea>
+                                                <Text fx:id="message_comment_bar" fill="#5f43b2" layoutX="240.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="247.50000000000003">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                                <FontIcon fx:id="delete_comment" iconLiteral="far-trash-alt" iconSize="24" layoutX="515.0" layoutY="95.0" styleClass="btn" visible="false" wrappingWidth="27.301105499267578" />
+                                                <FontIcon fx:id="cancel_edit" iconLiteral="far-times-circle" iconSize="24" layoutX="515.0" layoutY="95.0" styleClass="btn" visible="false" wrappingWidth="27.301105499267578" />
+                                                <FontIcon fx:id="edit_comment" iconLiteral="far-edit" iconSize="24" styleClass="btn" visible="false" wrappingWidth="27.301105499267578" x="560.0" y="95.0" />
+                                                <FontIcon fx:id="post_comment" iconLiteral="far-comment" iconSize="24" styleClass="btn" wrappingWidth="27.301105499267578" x="560.0" y="95.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorpane_overview" layoutX="8.0" layoutY="141.0" prefHeight="510.0" prefWidth="628.0" visible="false">
+                                 <children>
+                                    <ScrollPane layoutX="14.0" layoutY="134.0" prefHeight="113.0" prefWidth="600.0" style="-fx-background-insets: 0; -fx-background-color: transparent; -fx-background: white;">
+                                       <content>
+                                          <Text fx:id="description_book" fill="#494c4a" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Beth, Portia, and Eddie Morgan haven't all been together in years. And for very good reas respective partners must come together for a cross-country road trip to fulfill his final wish and—more importantly—secure their inheritance.But time with your family can be tough. It is for everyone..   Beth, Portia, and Eddie Morgan haven't all been together in years. And for very gooers must come    " wrappingWidth="580.0">
+                                             <font>
+                                                <Font name="System Italic" size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </content>
+                                    </ScrollPane>
+                                    <Label layoutX="14.0" layoutY="95.0" style="-fx-font-weight: bold;-fx-font-size:20" text="Description" textFill="#333333">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="14.0" layoutY="14.0" style="-fx-font-weight: bold;-fx-font-size:20" text="Authors" textFill="#333333">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="328.0" layoutY="14.0" style="-fx-font-weight: bold;-fx-font-size:20" text="Categories" textFill="#333333">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane hgap="5.0" layoutX="14.0" layoutY="54.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="author2" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="author3" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="author1" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane layoutX="328.0" layoutY="54.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="category1" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="category2" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="24.0" prefWidth="100.0" style="-fx-background-color: #f2ecff; -fx-background-radius: 10;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                             <children>
+                                                <Text fx:id="category3" fill="#1e1b1b" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="90.14011001586914">
+                                                   <font>
+                                                      <Font name="System Italic" size="14.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </GridPane>
+                                    <AnchorPane layoutX="1.0" layoutY="250.0" prefHeight="260.0" prefWidth="626.0">
+                                       <children>
+                                          <GridPane layoutX="14.0" layoutY="16.0" prefHeight="65.0" prefWidth="268.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="ISBN">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="isbn_book" fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="978-0593100981" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane layoutX="344.0" layoutY="16.0" prefHeight="65.0" prefWidth="268.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fx:id="Pages_book" fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="Pages">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="pages_book" fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="400" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane layoutX="14.0" layoutY="93.0" prefHeight="65.0" prefWidth="268.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="Publisher">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="publisher_book" fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Berkley" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane layoutX="344.0" layoutY="93.0" prefHeight="65.0" prefWidth="268.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="Publication date">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="publication_date" fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="July 21, 2020" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane layoutX="14.0" layoutY="170.0" prefHeight="65.0" prefWidth="269.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="ID">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fx:id="id_book" fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="978-0593100981" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                          <GridPane layoutX="344.0" layoutY="170.0" prefHeight="65.0" prefWidth="270.0" style="-fx-border-radius: 10; -fx-border-color: #e4e4e7; -fx-background-color: white; -fx-padding: 10;" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="65.60001220703124" minHeight="10.0" prefHeight="45.600012207031256" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="47.19998779296874" minHeight="10.0" prefHeight="47.19998779296874" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;-fx-font-size:18" text="File size">
+                                                   <font>
+                                                      <Font size="18.0" />
+                                                   </font>
+                                                </Text>
+                                                <Text fill="#2e2e2e" layoutX="10.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2358 KB" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="16.0" />
+                                                   </font>
+                                                </Text>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="listbookrelative" layoutX="14.0" layoutY="695.0" prefHeight="310.0" prefWidth="1032.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e4e4e7;">
+                           <children>
+                              <Label layoutX="31.0" layoutY="14.0" style="-fx-font-weight: bold;-fx-font-size:20" text="You May Also Like" textFill="#333333">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <GridPane layoutX="31.0" layoutY="44.0" prefHeight="263.0" prefWidth="1000.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="184.39998779296874" minHeight="10.0" prefHeight="180.39998779296874" valignment="CENTER" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="82.60001220703126" minHeight="9.000036621093756" prefHeight="42.00001220703123" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="50.60007324218748" minHeight="10.0" prefHeight="23.5999755859375" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="50.60007324218748" minHeight="10.0" prefHeight="36.40002441406253" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../img/Trending.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#666666" layoutX="53.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.rowIndex="2" />
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" layoutX="44.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                       <image>
+                                          <Image url="@../img/Love.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" layoutX="215.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                       <image>
+                                          <Image url="@../img/Detective.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" layoutX="384.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                       <image>
+                                          <Image url="@../img/Class.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" layoutX="555.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                       <image>
+                                          <Image url="@../img/Trending.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="156.0" fitWidth="117.0" layoutX="724.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+                                       <image>
+                                          <Image url="@../img/Thrillers.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Text layoutX="53.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="53.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="393.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 4" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="564.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 5" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="733.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Title 6" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#666666" layoutX="57.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" layoutX="66.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" layoutX="236.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" layoutX="406.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" layoutX="406.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="29.0" fitWidth="58.0" layoutX="406.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                       <image>
+                                          <Image url="@../img/Rank.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text fill="#666666" layoutX="228.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Text fill="#666666" layoutX="397.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Text fill="#666666" layoutX="568.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                    <Text fill="#666666" layoutX="737.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Author Name" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="qr_code_tooltip" layoutX="406.0" layoutY="514.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5f43b2; -fx-background-radius: 10; -fx-border-radius: 10;" visible="false">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="50.0" layoutX="-17.0" layoutY="83.0" rotate="45.0" stroke="#5f43b2" strokeType="INSIDE" strokeWidth="0.0" width="51.0" />
+                              <ImageView fx:id="qr_code_img" fitHeight="150.0" fitWidth="147.0" layoutX="27.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <fx:include source="dropdown.fxml" />
+         </children>
+      </AnchorPane>
+      <Accordion />
+      <AnchorPane fx:id="borrow_modal" prefHeight="827.4" prefWidth="1234.6" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="326.0" layoutY="171.0" prefHeight="483.0" prefWidth="562.0" styleClass="modal-content">
+               <children>
+                  <AnchorPane layoutX="95.0" layoutY="26.0" prefHeight="57.0" prefWidth="367.0" style="-fx-background-color: #f4f4f5; -fx-background-radius: 6px; -fx-padding: 5px 10px;">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Text fill="#7d7d7d" layoutX="68.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Confirmation" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="231.7451171875">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Group layoutX="53.0" layoutY="113.0">
+                     <children>
+                        <Text layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expected return date">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="return_date_picker" layoutY="30.0" prefHeight="50.0" prefWidth="452.0" promptText="Select expected return date" style="-fx-background-insets: 0;" styleClass="form-control">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></DatePicker>
+                        <Text fill="#5b5b5b" layoutX="3.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Note: The expected return date has to be greater than the current date and must not be more than one month from the borrowing date." wrappingWidth="445.27276611328125">
+                           <font>
+                              <Font name="System Italic" size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Group>
+                  <Group layoutX="54.0" layoutY="412.0">
+                     <children>
+                        <Button fx:id="cancel_borrow_modal" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Cancel">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-default" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="accept_borrow_modal" layoutX="239.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="220.0" text="Borrow" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </Group>
+                  <TextField fx:id="captcha_confirm" layoutX="52.0" layoutY="305.0" prefHeight="50.0" prefWidth="452.0" promptText="Type the above word" style="-fx-font-weight: bold;" styleClass="form-control" />
+                  <ImageView fx:id="captcha_image" fitHeight="45.0" fitWidth="187.0" layoutX="190.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="button_reload_captcha" graphicTextGap="8.0" layoutX="453.0" layoutY="252.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="51.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontIcon iconLiteral="fas-sync-alt" />
+                     </graphic>
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-default" />
+                     </styleClass>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <AnchorPane fx:id="return_modal" layoutX="10.0" layoutY="10.0" prefHeight="838.0" prefWidth="1245.2" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="417.0" layoutY="272.0" prefHeight="279.0" prefWidth="418.0" styleClass="modal-content">
+               <children>
+                  <AnchorPane layoutX="23.0" layoutY="22.0" prefHeight="30.0" prefWidth="366.0" style="-fx-background-color: #f4f4f5; -fx-background-radius: 6px; -fx-padding: 5px 10px;">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Text layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Confirmation" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="187.2359619140625">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Group layoutX="54.0" layoutY="357.0">
+                     <children>
+                        <Button fx:id="cancel_return_modal" layoutY="-141.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="147.0" text="Cancel">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-default" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="accept_return_modal" layoutX="163.0" layoutY="-141.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="147.0" text="Return" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-success" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </Group>
+                  <TextFlow fx:id="return_modal_message" layoutX="53.0" layoutY="85.0" lineSpacing="0.2" prefHeight="98.0" prefWidth="311.0" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="overdue_modal" layoutX="10.0" layoutY="10.0" prefHeight="848.0" prefWidth="1255.5" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="417.0" layoutY="274.0" prefHeight="279.0" prefWidth="418.0" styleClass="modal-content">
+               <children>
+                  <AnchorPane layoutX="23.0" layoutY="22.0" prefHeight="30.0" prefWidth="366.0" style="-fx-background-color: #f4f4f5; -fx-background-radius: 6px; -fx-padding: 5px 10px;">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <children>
+                        <Text layoutY="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Overdue Notice" textAlignment="CENTER" textOrigin="TOP" wrappingWidth="187.2359619140625">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Group layoutX="54.0" layoutY="357.0">
+                     <children>
+                        <Button fx:id="close_overdue_modal" layoutX="-26.0" layoutY="-140.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="147.0" text="Close">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-default" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </Group>
+                  <TextFlow fx:id="overdue_modal_message" layoutX="27.0" layoutY="83.0" lineSpacing="0.2" prefHeight="122.0" prefWidth="359.0" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="loading" layoutX="600.0" layoutY="50.0" prefHeight="46.0" prefWidth="50" />
+   </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+      <URL value="@../css/bookdetailsadmin.css" />
+   </stylesheets>
+</AnchorPane>

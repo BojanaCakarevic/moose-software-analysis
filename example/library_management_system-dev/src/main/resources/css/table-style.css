@@ -1,0 +1,46 @@
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent transparent #3a2e7d transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to right, #5f43b2, #3a2e7d);
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-background-radius: 10px 10px 0 0 ;
+}
+
+.table-view .column-header-background .label {
+    -fx-text-fill: white;
+}
+
+.book-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-fill: #1f2937;
+}
+
+.book-author {
+    -fx-font-size: 14px;
+    -fx-font-weight: normal;
+    -fx-fill: #798188;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #c9baef;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #6840bd80;
+}
+

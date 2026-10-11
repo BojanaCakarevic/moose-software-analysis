@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="713.0" prefWidth="299.0" style="-fx-background-color: #f4f3f3;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.RightPanelController">
+    <!-- Khung sách đề xuất -->
+    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="254.0" prefWidth="271.0" style="-fx-background-color: linear-gradient(to right bottom, #ffffff, #ece9e9); -fx-background-radius: 10;" styleClass="pane">
+        <children>
+            <GridPane layoutX="8.0" layoutY="14.0" prefHeight="240.0" prefWidth="250.0">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="131.4" minWidth="10.0" prefWidth="125.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <ImageView fx:id="random_image" fitHeight="192.0" fitWidth="123.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../img/Love.jpg" />
+                        </image>
+                    </ImageView>
+                    <AnchorPane GridPane.columnIndex="1">
+                        <children>
+                            <VBox layoutX="14.0" layoutY="26.0" prefHeight="102.0" prefWidth="94.0">
+                                <children>
+                                    <Text fill="#5f43b2" strokeType="OUTSIDE" strokeWidth="0.0" text="Have you read?">
+                                        <font>
+                                            <Font name="System Bold" size="14.0" />
+                                        </font>
+                                    </Text>
+                                    <Text fx:id="random_title" fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="The Lost Word" wrappingWidth="113.20000457763672">
+                                        <font>
+                                            <Font size="15.0" />
+                                        </font>
+                                    </Text>
+                                    <Text fx:id="random_authors" fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="Cannan Doyle" wrappingWidth="107.96367645263672">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                    </Text>
+                                    <AnchorPane fx:id="rating_bar_random" prefHeight="23.0" prefWidth="94.0" />
+                                </children>
+                            </VBox>
+                            <Button fx:id="random_read" graphicTextGap="8.0" layoutX="9.0" layoutY="177.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="109.0" text="Read now" textFill="#666666">
+                        <styleClass>
+                           <String fx:value="btn" />
+                           <String fx:value="btn-default" />
+                        </styleClass>
+                        <font>
+                           <Font size="14.0" />
+                        </font>
+                        <graphic>
+                           <FontIcon iconLiteral="fas-book-open" />
+                        </graphic></Button>
+                        </children>
+                    </AnchorPane>
+                </children>
+            </GridPane>
+        </children>
+    </AnchorPane>
+
+    <!-- Thay thế banner quảng cáo bằng TableView hiển thị các sách được mượn nhiều -->
+    <AnchorPane layoutX="10.0" layoutY="299.0" prefHeight="401.0" prefWidth="274.0" styleClass="pane">
+        <children>
+            <TableView fx:id="popular_books" layoutX="1.0" layoutY="45.0" prefHeight="359.0" prefWidth="271.0" styleClass="table-view" stylesheets="@../css/table-style.css">
+                <columns>
+                    <!-- Cột Book: Gộp ảnh thu nhỏ và tên sách -->
+                    <TableColumn fx:id="book_col" editable="false" prefWidth="175.0" sortable="false" styleClass="book-cell" text="Book">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="bookDetails" />
+                        </cellValueFactory>
+                    </TableColumn>
+
+                          <!-- Cột hiển thị số lần mượn, điều chỉnh kích thước để vừa khít -->
+                    <TableColumn fx:id="borrow_col" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Borrows">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="borrowCount" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+         <AnchorPane layoutX="1.0" prefHeight="72.0" prefWidth="271.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d); -fx-border-radius: 8 8 0 0; -fx-background-radius: 8 8 0 0;">
+            <children>
+               <Label graphicTextGap="10.0" layoutX="21.0" layoutY="8.0" text="Top Books" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+                  <graphic>
+                     <FontIcon iconColor="WHITE" iconLiteral="fas-thumbs-up" />
+                  </graphic>
+               </Label>
+               <Text fill="#fffcfc" fontSmoothingType="LCD" layoutX="21.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Most borrowed books in our collection">
+                  <font>
+                     <Font name="System Italic" size="14.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+        </children>
+    </AnchorPane>
+</AnchorPane>

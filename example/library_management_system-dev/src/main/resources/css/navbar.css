@@ -1,0 +1,25 @@
+.navbar {
+    -fx-background-color: linear-gradient(to bottom, #5f43b2, #3a2e7d);
+}
+
+.navbar-button {
+    -fx-background-color: #5f43b2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-transition: all 0.2s ease;
+}
+
+.navbar-button:hover {
+    -fx-background-color: white;
+}
+
+.navbar-button:hover .navbar-icon,
+.navbar-button:pressed .navbar-icon {
+    -fx-fill: black;
+}
+
+.navbar-button:pressed {
+    -fx-background-color: #f2ecff;
+    -fx-scale-x: 0.92;
+    -fx-scale-y: 0.92;
+}

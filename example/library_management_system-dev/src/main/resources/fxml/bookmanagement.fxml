@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.BookManagementController">
+    <children>
+        <fx:include source="navbaradmin.fxml" />
+        <AnchorPane layoutX="90.0" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #f4f3f3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+            <AnchorPane layoutX="213.0" layoutY="31.0" prefHeight="38.0" prefWidth="459.0">
+               <children>
+                          <TextField fx:id="search_bar" layoutY="-1.0" prefHeight="38.0" prefWidth="460.0" promptText="   Search....." styleClass="form-control">
+                              <font>
+                                  <Font size="16.0" />
+                              </font>
+                  </TextField>
+                  <FontIcon fx:id="button_search" iconColor="#848484" iconLiteral="fas-search" iconSize="20" layoutX="430.0" layoutY="26.0" styleClass="button-search" text="">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </FontIcon>
+               </children>
+                <FontIcon fx:id="button_delete_search" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="400" layoutY="26.0" visible="false">
+                    <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn_delete_icon" />
+                    </styleClass></FontIcon>
+            </AnchorPane>
+                <MenuButton fx:id="button_option_search" layoutX="35.0" layoutY="30.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="170.0" text="Category" textFill="#666666">
+                    <items>
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Category" />
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Title" />
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Author" />
+                        <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Publisher" />
+                    </items>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-default" />
+               </styleClass>
+                </MenuButton>
+            <StackPane layoutX="30.0" layoutY="94.0" prefHeight="722.0" prefWidth="1050.0">
+               <children>
+                      <AnchorPane prefHeight="714.0" prefWidth="1050.0" styleClass="pane">
+                          <children>
+                              <AnchorPane layoutY="70.0" prefHeight="50.0" prefWidth="996.0">
+                                  <children>
+                                      <GridPane layoutX="23.0" layoutY="11.0" prefHeight="27.0" prefWidth="997.0">
+                                          <columnConstraints>
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="139.0000244140625" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="424.8" minWidth="10.0" prefWidth="339.1999755859375" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="454.40004882812497" minWidth="10.0" prefWidth="223.99997558593748" />
+                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="407.2000732421875" minWidth="10.0" prefWidth="297.60002441406255" />
+                                          </columnConstraints>
+                                          <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                          </rowConstraints>
+                                          <children>
+                                              <Text fill="#71717a" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="20.145721435546875">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#666666" layoutX="28.0" layoutY="49.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" GridPane.columnIndex="1">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#666666" layoutX="183.0" layoutY="49.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Author" GridPane.columnIndex="2">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                              <Text fill="#666666" layoutX="714.0" layoutY="49.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" text="Action" GridPane.columnIndex="3">
+                                                  <font>
+                                                      <Font name="System Bold" size="16.0" />
+                                                  </font>
+                                              </Text>
+                                          </children>
+                                      </GridPane>
+                                  </children>
+                              </AnchorPane>
+                              <Label graphicTextGap="10.0" layoutX="25.0" layoutY="20.0" style="-fx-font-weight: bold;" text="Book Management" textFill="#020617">
+                                  <font>
+                                      <Font size="20.0" />
+                                  </font>
+                           <graphic>
+                              <FontIcon iconLiteral="fab-stack-overflow" />
+                           </graphic>
+                              </Label>
+                              <ScrollPane hbarPolicy="NEVER" layoutX="20.0" layoutY="117.0" prefHeight="555.0" prefWidth="1015.0" style="-fx-background-insets: 0; -fx-background-color: transparent; -fx-background: white;">
+                                  <content>
+                                      <VBox fx:id="vbox_list_book" prefHeight="52.0" prefWidth="1001.0" style="-fx-background-color: white;">
+                                          <children>
+                                              <AnchorPane prefWidth="1376.0" styleClass="table-row">
+                                                  <children>
+                                                      <GridPane layoutX="7.2" layoutY="15.200000000000001" prefHeight="21.0" prefWidth="970.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="13.0">
+                                                          <columnConstraints>
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="192.39996337890625" minWidth="5.9999542236328125" prefWidth="140.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="390.0000457763672" minWidth="10.0" prefWidth="345.0" />
+                                                              <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="458.3999633789063" minWidth="10.0" prefWidth="215.00003662109373" />
+                                                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="374.5999755859375" minWidth="10.0" prefWidth="265.39996337890625" />
+                                                          </columnConstraints>
+                                                          <rowConstraints>
+                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                          </rowConstraints>
+                                                          <children>
+                                                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+                                                                  <font>
+                                                                      <Font size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                              <Text layoutX="28.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Example book name" GridPane.columnIndex="1">
+                                                                  <font>
+                                                                      <Font name="System Bold" size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                              <Text layoutX="183.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="john@example.com" GridPane.columnIndex="2">
+                                                                  <font>
+                                                                      <Font size="15.0" />
+                                                                  </font>
+                                                              </Text>
+                                                <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="10.0" GridPane.columnIndex="3">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="75.0" text="Detail" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-default" />
+                                                            <String fx:value="action" />
+                                                         </styleClass>
+                                                      </Button>
+                                                                      <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="75.0" text="Update" textFill="WHITE">
+                                                                          <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                          </font>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-primary" />
+                                                            <String fx:value="action" />
+                                                         </styleClass>
+                                                                      </Button>
+                                                                      <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="75.0" text="Delete" textFill="WHITE">
+                                                                          <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                          </font>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <styleClass>
+                                                            <String fx:value="btn" />
+                                                            <String fx:value="btn-danger" />
+                                                            <String fx:value="action" />
+                                                         </styleClass>
+                                                                      </Button>
+                                                   </children>
+                                                </FlowPane>
+                                                          </children>
+                                                      </GridPane>
+                                                  </children>
+                                                  <VBox.margin>
+                                                      <Insets />
+                                                  </VBox.margin>
+                                              </AnchorPane>
+                                          </children>
+                                      </VBox>
+                                  </content>
+                              </ScrollPane>
+                        <Line endX="893.7999267578125" endY="-3.0517578125E-5" fill="#d5d5d7" layoutX="125.0" layoutY="115.0" opacity="0.53" startX="-102.20004272460938" startY="-3.0517578125E-5" stroke="#c4c4c4" />
+                              <Button fx:id="button_add_book" graphicTextGap="10.0" layoutX="875.0" layoutY="20.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #5f43b2, #3a2e7d);;" text="Add book" textFill="WHITE">
+                                  <font>
+                                      <Font name="System Bold" size="16.0" />
+                                  </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                           <graphic>
+                              <FontIcon iconColor="WHITE" iconLiteral="fas-folder-plus" />
+                           </graphic>
+                              </Button>
+                      <AnchorPane fx:id="loading" layoutX="500.0" layoutY="20.0" prefHeight="46.0" prefWidth="50" />
+                        <AnchorPane layoutX="20.0" layoutY="673.0" prefHeight="50.0" prefWidth="1007.0">
+                           <children>
+                              <HBox fx:id="hBox_Pages" alignment="CENTER" layoutX="317.0" layoutY="9.0" prefHeight="34.0" prefWidth="353.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="&lt;" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="1" />
+                                    <Button layoutX="90.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="2" />
+                                    <Button layoutX="130.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="...." />
+                                    <Button layoutX="170.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="9" />
+                                    <Button layoutX="292.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="10" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" text="&gt;" />
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="text_pages" alignment="CENTER" layoutX="655.0" layoutY="9.0" prefHeight="20.0" prefWidth="43.0" styleClass="form-control" text="1" />
+                              <Text fx:id="total_pages" fill="#4e4e4e" layoutX="707.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/200">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <MenuButton fx:id="button_option_sort" layoutX="737.0" layoutY="19.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" text="Sort Option" textFill="#666666">
+                           <items>
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="ID" />
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Title" />
+                              <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Author" />
+                           </items>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-default" />
+                           </styleClass>
+                        </MenuButton>
+                          </children>
+                      </AnchorPane>
+               </children>
+            </StackPane>
+                <fx:include source="dropdown.fxml" />
+                <Button fx:id="button_qr_scan" graphicTextGap="10.0" layoutX="700.0" layoutY="27.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="115.0" text="QR Scan">
+                    <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-default" />
+                    </styleClass>
+                    <graphic>
+                        <FontIcon iconLiteral="fas-qrcode" iconSize="20" />
+                    </graphic>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                  <ScrollPane fx:id="scroll_result_search" layoutX="215.0" layoutY="69.0" maxHeight="420.0" prefWidth="454.0" style="-fx-background-color: transparent;" styleClass="suggestions">
+                      <VBox fx:id="vbox_result_search" prefWidth="428.0" style="-fx-background-color: white;" />
+                  </ScrollPane>
+            </children>
+        </AnchorPane>
+      <AnchorPane fx:id="anchorpane_add_book" prefHeight="826.4726986114259" prefWidth="1200.0" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="259.0" layoutY="82.0" prefHeight="662.0" prefWidth="682.0" styleClass="modal-content">
+               <children>
+                  <AnchorPane layoutX="126.0" layoutY="24.0" prefHeight="65.0" prefWidth="428.0" styleClass="modal-tab">
+                     <children>
+                        <Button fx:id="button_add_book_hand" layoutX="18.0" layoutY="10.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="190.0" text="Add Book" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn-primary" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="button_add_api" layoutX="220.0" layoutY="9.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="190.0" text="Add Book API" textFill="#333333">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="modal-tab-unactive" />
+                           </styleClass>
+                        </Button>
+                        <Text fx:id="edit_book_label" fill="#7d7d7d" layoutX="127.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit book details" visible="false">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <StackPane layoutX="13.0" layoutY="110.0" prefHeight="405.0" prefWidth="469.0">
+                     <children>
+                        <AnchorPane prefHeight="526.0" prefWidth="669.0">
+                           <children>
+                              <AnchorPane prefHeight="78.0" prefWidth="335.0">
+                                 <children>
+                                    <Text layoutX="27.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#d20202" layoutX="57.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="title_book" layoutX="27.0" layoutY="37.0" prefHeight="40.0" prefWidth="294.0" promptText="Enter title" styleClass="form-control" />
+                                        <FontIcon fx:id="button_delete_add_title" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="293.0" layoutY="63.0" visible="false">
+                                            <styleClass>
+                                                <String fx:value="btn" />
+                                                <String fx:value="btn_delete_icon" />
+                                            </styleClass>
+                                    </FontIcon>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="1.0" layoutY="90.0" prefHeight="74.0" prefWidth="335.0">
+                                 <children>
+                                    <Text layoutX="26.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="authors_book" layoutX="26.0" layoutY="26.0" prefHeight="40.0" prefWidth="295.0" promptText="Enter authors" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_add_authors" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="293.0" layoutY="52.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass>
+                                    </FontIcon>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="1.0" layoutY="168.0" prefHeight="74.0" prefWidth="335.0">
+                                 <children>
+                                    <Text layoutX="26.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="categories_book" layoutX="26.0" layoutY="26.0" prefHeight="40.0" prefWidth="295.0" promptText="Enter categories" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_add_categories" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="293.0" layoutY="52.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass>
+                                    </FontIcon>
+                                    <Text fill="#d20202" layoutX="99.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="360.0" layoutY="10.0" prefHeight="215.0" prefWidth="284.0">
+                                 <children>
+                                    <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextArea fx:id="description_book" layoutX="-1.0" layoutY="29.0" prefHeight="192.0" prefWidth="280.0" promptText="Enter book description" styleClass="textarea" wrapText="true" />
+                                    <FontIcon fx:id="button_delete_add_description" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="257.0" layoutY="54.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass>
+                                    </FontIcon>
+                                    <Text fill="#d20202" layoutX="77.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </AnchorPane>
+                              <GridPane layoutX="29.0" layoutY="252.0" prefHeight="145.0" prefWidth="291.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.800048828125" minWidth="10.0" prefWidth="91.49092172165558" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.99996337890624" minWidth="10.0" prefWidth="200.5817948673976" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Publish Date" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="10.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="10.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ISBN">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#d20202" strokeType="OUTSIDE" strokeWidth="0.0" text="        *">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="publishdate_book" prefHeight="26.0" prefWidth="158.0" promptText="YYYY-MM-DD" styleClass="form-control" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="publisher_book" layoutX="120.0" layoutY="12.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter publisher name" styleClass="form-control" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="isbn_book" layoutX="120.0" layoutY="12.0" prefHeight="26.0" prefWidth="158.0" promptText="Enter ISBN" styleClass="form-control" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane layoutX="361.0" layoutY="252.0" prefHeight="140.0" prefWidth="277.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.800048828125" minWidth="10.0" prefWidth="83.20003662109374" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="223.99996337890624" minWidth="10.0" prefWidth="223.99996337890624" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pages" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="10.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book ID">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text layoutX="10.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#d20202" strokeType="OUTSIDE" strokeWidth="0.0" text="             *">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="pages_book" prefHeight="26.0" prefWidth="158.0" promptText="Enter total pages" styleClass="form-control" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="id_book" layoutX="120.0" layoutY="12.0" prefHeight="26.0" prefWidth="339.0" promptText="Enter book ID" styleClass="form-control" GridPane.columnIndex="1" />
+                                    <TextField fx:id="quantity_in_stock" layoutX="120.0" layoutY="12.0" prefHeight="25.0" prefWidth="223.0" promptText="Enter quantity in stock" styleClass="form-control" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text fill="#d20202" strokeType="OUTSIDE" strokeWidth="0.0" text="          *" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <Text fill="#d20202" strokeType="OUTSIDE" strokeWidth="0.0" text="              *" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </GridPane>
+                              <AnchorPane layoutX="29.0" layoutY="405.0">
+                                 <children>
+                                    <Text fx:id="add_image_label" layoutY="20.8134765625" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Image">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Text>
+                                    <TextField fx:id="link_image_book" layoutX="91.0" prefHeight="34.0" prefWidth="517.0" promptText="Enter link to the book thumbnail" styleClass="form-control" />
+                                    <FontIcon fx:id="button_delete_add_img" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="582.0" layoutY="21.0" visible="false">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn_delete_icon" />
+                                       </styleClass>
+                                    </FontIcon>
+                                 </children>
+                              </AnchorPane>
+                              <Button fx:id="button_cancel" graphicTextGap="8.0" layoutX="29.0" layoutY="475.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-default" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconLiteral="fas-times" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="button_add_book_form" graphicTextGap="8.0" layoutX="346.0" layoutY="475.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="291.0" style="-fx-background-color: #5f43b2;" text="Add" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fas-plus" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="button_update_book_form" graphicTextGap="8.0" layoutX="347.0" layoutY="475.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" style="-fx-background-color: #5f43b2;" text="Update" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fas-edit" />
+                                 </graphic>
+                              </Button>
+                              <FontIcon fx:id="button_delete_add_isbn" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="300.0" layoutY="284.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_publisher" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="300.0" layoutY="332.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_publishdate" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="300.0" layoutY="380.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_pages" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="620.0" layoutY="328.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_quantity" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="620.0" layoutY="378.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_id" iconColor="#666666" iconLiteral="fas-times" iconSize="18" layoutX="620.0" layoutY="282.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <Text fx:id="message_add_book" fill="#e10707" layoutX="29.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="608.0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="anchorpane_add_api" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" visible="false">
+                           <children>
+                              <TextField fx:id="textfield_isbn_add_book" layoutX="133.0" layoutY="36.0" prefHeight="50.0" prefWidth="402.0" promptText="Enter ISBN Book" style="-fx-font-weight: bold;" styleClass="form-control" />
+                              <Button fx:id="button_cancel1" graphicTextGap="8.0" layoutX="29.0" layoutY="475.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="290.0" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-default" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconLiteral="fas-times" />
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="button_add_form_book_api" disable="true" graphicTextGap="10.0" layoutX="346.0" layoutY="477.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="291.0" text="Add this book" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-primary" />
+                                 </styleClass>
+                                 <graphic>
+                                    <FontIcon iconColor="WHITE" iconLiteral="fas-plus" />
+                                 </graphic>
+                              </Button>
+                              <AnchorPane fx:id="anchorpane_detail_book_api" layoutX="15.0" layoutY="137.0" prefHeight="272.0" prefWidth="639.0" visible="false">
+                                 <children>
+                                    <ImageView fx:id="img_book_api" fitHeight="244.0" fitWidth="163.0" layoutX="54.0" layoutY="4.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../img/Trending.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <GridPane layoutX="281.0" layoutY="41.0" prefHeight="155.0" prefWidth="328.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="180.20001220703125" minWidth="10.0" prefWidth="95.12725659583235" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="321.59996337890624" minWidth="10.0" prefWidth="195.49091514398265" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="116.20001831054688" minHeight="10.0" prefHeight="46.000006103515624" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="149.79999389648438" minHeight="10.0" prefHeight="66.79999389648438" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="48.59998779296873" minHeight="10.0" prefHeight="48.59998779296873" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="10.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Authors" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="10.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="System Bold" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="title_book_api" layoutX="10.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trending In love" wrappingWidth="209.1218376159668" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="authors_book_api" layoutX="103.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mai Duy" wrappingWidth="210.7219352722168" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <Text fx:id="categories_book_api" layoutX="103.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Romance" wrappingWidth="211.52192306518555" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                              <Text fx:id="text_search_api_fail" fill="#f44336" layoutX="126.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No book found with the ISBN you provided." textAlignment="CENTER" visible="false" wrappingWidth="402.39999999999986">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <FontIcon fx:id="button_search_api" iconLiteral="fas-search" iconSize="20" layoutX="504.0" layoutY="68.0" styleClass="button-search">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontIcon>
+                              <FontIcon fx:id="button_delete_add_bookapi" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="485.0" layoutY="67.0" visible="false">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn_delete_icon" />
+                                 </styleClass>
+                              </FontIcon>
+                              <Text fx:id="message_add_book_api" fill="#e10707" layoutX="30.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="608.0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+        <AnchorPane fx:id="qr_scan_modal" prefHeight="826.4726986114259" prefWidth="1200.0" styleClass="modal" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <AnchorPane layoutX="372.0" layoutY="154.0" prefHeight="518.0" prefWidth="456.0" styleClass="modal-content">
+                    <children>
+                        <ImageView fx:id="qr_image" fitHeight="200.0" fitWidth="200.0" layoutX="128.0" layoutY="40.0" pickOnBounds="true">
+                            <image>
+                                <Image url="@../img/qr_placeholder.jpg" />
+                            </image>
+                        </ImageView>
+                        <Button fx:id="button_upload_qr" graphicTextGap="10.0" layoutX="141.0" layoutY="246.0" mnemonicParsing="false" text="Upload QR image">
+                            <styleClass>
+                                <String fx:value="btn" />
+                                <String fx:value="btn-default" />
+                            </styleClass>
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <graphic>
+                                <FontIcon iconLiteral="fas-upload" />
+                            </graphic>
+                        </Button>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="200.0" layoutX="13.0" layoutY="305.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="430.0" />
+                        <Text fx:id="qr_error_message" fill="#f44336" fontSmoothingType="LCD" layoutX="67.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book not found for the given QR code. Please check and reupload the image!" textAlignment="CENTER" visible="false" wrappingWidth="322.036421745868">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Text>
+                        <GridPane fx:id="qr_book_info" layoutX="51.0" layoutY="328.0" prefHeight="145.0" prefWidth="353.0" visible="false">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.9999854221818" minWidth="10.0" prefWidth="137.01819956377534" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.4726721897599" minWidth="10.0" prefWidth="217.30906087575892" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints maxHeight="86.3090643260105" minHeight="10.0" prefHeight="66.23637145491675" vgrow="SOMETIMES" />
+                                <RowConstraints maxHeight="106.781842646323" minHeight="10.0" prefHeight="78.85453551741675" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <ImageView fx:id="qr_book_image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowSpan="2">
+                                    <image>
+                                        <Image url="@../img/Class.jpg" />
+                                    </image>
+                                </ImageView>
+                                <Text fx:id="qr_book_title" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="A History of Portuguese Overseas Expansion 1400–1668" wrappingWidth="224.4680938720703" GridPane.columnIndex="1">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <Button fx:id="button_qr_book_details" graphicTextGap="8.0" mnemonicParsing="false" text="Go to details" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <styleClass>
+                                        <String fx:value="btn" />
+                                        <String fx:value="btn-primary" />
+                                    </styleClass>
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <graphic>
+                                        <FontIcon iconColor="WHITE" iconLiteral="fas-arrow-right" />
+                                    </graphic>
+                                </Button>
+                            </children>
+                        </GridPane>
+                        <Button fx:id="button_close_qr_modal" graphicTextGap="8.0" layoutX="369.0" layoutY="14.0" mnemonicParsing="false" text="Close">
+                            <styleClass>
+                                <String fx:value="btn" />
+                                <String fx:value="btn-default" />
+                            </styleClass>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <graphic>
+                                <FontIcon iconLiteral="fas-times" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+   <stylesheets>
+      <URL value="@../css/style.css" />
+      <URL value="@../css/bookmanagement.css" />
+       <URL value="@../css/pages.css" />
+   </stylesheets>
+</AnchorPane>

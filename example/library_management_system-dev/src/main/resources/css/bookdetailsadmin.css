@@ -1,0 +1,83 @@
+.book-tab {
+    -fx-background-color: #f2ecff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.book-tab-unactive {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #5f43b2;
+}
+
+.book-stat {
+    -fx-border-radius: 0 10 10 0;
+    -fx-background-radius: 10;
+    -fx-border-width: 0 0 0 5;
+    -fx-padding: 0 0 0 20;
+}
+
+.default-label {
+    -fx-background-color: #f2ecff;
+    -fx-border-color: #e0e0e0;
+}
+
+.default-label * {
+    -fx-fill: #343434;
+}
+
+.primary-label {
+    -fx-background-color: #e5e2f0;
+    -fx-border-color: #5f43b2;
+}
+
+.primary-label * {
+    -fx-fill: #5f43b2;
+}
+
+.warning-label {
+    -fx-background-color: #f9e8e8;
+    -fx-border-color: #f44336;
+}
+
+.warning-label * {
+    -fx-fill: #f44336;
+}
+
+.changed-row {
+    -fx-background-color: #fff5c3;
+}
+
+.added-row {
+    -fx-background-color: #dcf4ff;
+}
+
+
+
+.comment-box {
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+}
+
+.line-comment-box {
+    -fx-stroke: #ccc;
+    -fx-stroke-width: 1;
+}
+
+.comment-box.selected {
+    -fx-border-color: #5f43b2;
+    -fx-border-width: 2;
+}
+
+.line-comment-box.selected {
+    -fx-stroke: #5f43b2;
+    -fx-stroke-width: 2;
+}
+
+comment-btn {
+    -fx-fill: #cccccc;
+}
+
+comment-btn:hover {
+    -fx-fill: #5f43b2;
+}

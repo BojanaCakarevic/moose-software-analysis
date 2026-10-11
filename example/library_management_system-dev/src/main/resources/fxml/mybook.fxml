@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="mainPane" prefHeight="800.0" prefWidth="1200.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="navbar" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ddd.bookverse.controller.MyBookController">
+    <children>
+        <fx:include source="navbar.fxml" />
+        <AnchorPane layoutX="90.0" prefHeight="800.0" prefWidth="1110.0" style="-fx-background-color: #f4f3f3;">
+            <children>
+                  <AnchorPane layoutX="173.0" layoutY="22.0" prefHeight="50.0" prefWidth="585.0">
+                      <children>
+                          <MenuButton fx:id="button_option_search" layoutX="-3.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" text="Category" textFill="#666666">
+                              <items>
+                                  <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Category" />
+                                  <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Title" />
+                                  <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Author" />
+                                  <MenuItem mnemonicParsing="false" style="-fx-padding: 4; -fx-font-size: 14; -fx-text-fill: #333333; -fx-pref-width: 200;" text="Publisher" />
+                              </items>
+                              <font>
+                                  <Font size="14.0" />
+                              </font>
+                              <styleClass>
+                                  <String fx:value="btn" />
+                                  <String fx:value="btn-default" />
+                              </styleClass>
+                          </MenuButton>
+                          <TextField fx:id="search_bar" layoutX="133.0" layoutY="10.0" prefHeight="38.0" prefWidth="447.0" promptText="   Search....." styleClass="form-control">
+                              <font>
+                                  <Font size="16.0" />
+                              </font>
+                          </TextField>
+                          <FontIcon fx:id="button_search" iconColor="#848484" iconLiteral="fas-search" iconSize="20" layoutX="545.0" layoutY="36.0" styleClass="button-search" text="">
+                              <cursor>
+                                  <Cursor fx:constant="HAND" />
+                              </cursor>
+                          </FontIcon>
+                          <FontIcon fx:id="button_delete_search" iconColor="#969494" iconLiteral="fas-times" iconSize="18" layoutX="520.0" layoutY="35.0" visible="false">
+                     <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn_delete_icon" />
+                     </styleClass></FontIcon>
+
+                                  </children>
+                  </AnchorPane>
+                <ScrollPane focusTraversable="false" layoutX="50.0" layoutY="120.0" prefHeight="680.0" prefWidth="750.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+                    <content>
+                        <VBox fx:id="content_booklists">
+                            <children>
+                                <AnchorPane prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="142.6578369140625" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="10.0" layoutY="511.0" prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="10.0" layoutY="761.0" prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="10.0" layoutY="1012.0" prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="10.0" layoutY="1262.0" prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane layoutX="10.0" layoutY="1512.0" prefHeight="250.0" prefWidth="712.0">
+                                    <children>
+                                        <Text fill="#666666" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Continue Reading">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane alignment="CENTER" layoutY="34.0" prefHeight="214.0" prefWidth="712.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints maxHeight="162.2" minHeight="10.0" prefHeight="154.79996337890628" valignment="CENTER" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="78.80001220703126" minHeight="0.0" prefHeight="46.000036621093756" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="61.599999999999994" minHeight="10.0" prefHeight="16.399987792968744" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../img/Class.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="31.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                                    <image>
+                                                        <Image url="@../img/Detective.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="176.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+                                                    <image>
+                                                        <Image url="@../img/Love.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="321.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+                                                    <image>
+                                                        <Image url="@../img/Trending.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="150.0" fitWidth="100.0" layoutX="466.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+                                                    <image>
+                                                        <Image url="@../img/Thrillers.jpg" />
+                                                    </image>
+                                                </ImageView>
+                                                <Text fill="#666666" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="9.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="152.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="295.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Text fill="#666666" layoutX="437.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Adventure of Tomways" textAlignment="CENTER" wrappingWidth="144.2578125" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Text>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="164.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5f43b2" height="3.0" layoutX="21.0" layoutY="215.0" stroke="BLACK" strokeType="INSIDE" width="120.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            <AnchorPane fx:id="right_panel" layoutX="805.0" layoutY="81.0" prefHeight="663.0" prefWidth="268.0">
+                <children>
+                </children>
+            </AnchorPane>
+                <fx:include source="dropdown.fxml" />
+                <Label fx:id="booklist_home" layoutX="50.0" layoutY="93.0" prefHeight="30.0" prefWidth="161.0" style="-fx-font-weight: bold;" text="Borrowed Book" textFill="#5f43b2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="button_back" graphicTextGap="10.0" layoutX="50.0" layoutY="32.0" mnemonicParsing="false" text="Go back">
+                    <styleClass>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-primary" />
+                    </styleClass>
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <graphic>
+                        <FontIcon iconColor="WHITE" iconLiteral="fas-arrow-circle-left" />
+                    </graphic>
+                </Button>
+                <ScrollPane fx:id="scroll_result_search" layoutX="310.0" layoutY="72.0" maxHeight="420.0" prefWidth="447.0" style="-fx-background-color: transparent;">
+                        <VBox fx:id="vbox_result_search" prefWidth="428.0" style="-fx-background-color: white;" styleClass="suggestions" />
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="loading" layoutX="550.0" layoutY="50.0" prefHeight="46.0" prefWidth="50" />
+    </children>
+</AnchorPane>
