@@ -52,6 +52,39 @@ U FAMIX modelu identifikovanao je 17 glavnih klasa čija imena sadrže Controlle
 
 Tri najveća kontrolera (BookDetailController, BookManagmentController i AccountManagementController) sadrže ukupno 121 od 258 metoda, odnosno približno 47% metoda svih posmatranih kontrolera. Naravno, još uvek nije dokaz preopterećenosti ili otežane održivosti.
 
+## Međuklasni pozivi i ciklične zavisnosti
+
+Nakon analize slojeva i pojedinačnih kontrolora, istraživanje je prošireno na međuklasne pozive celog sistema. Cilj - utvrditi da li postoje klase koje se međusobno pozivaju, odnosno da li gras poziva metoda sadrži cikluse.
+
+Uz skripte 01 i 02, nad grupom Invocations izdvojeni su jedinstveni usmereni parovi klasa. Pronađeno je 55 klasa u grafu i 161 jedinstvena usmerena međuklasna veza (Jedna veza predstavlja postojanje najmanje jednog poziva metode između dve različite klase).
+
+Skriptom 03 pretraživani su parovi klasa sa dvosmernim pozivima. Pronađena su tri direktna ciklusa:
+
+![Entiteti FAMIX modela](screenshots/arrays.png)
+
+Sva tri ciklusa uključuju klasu RightPanelController, što je ukazalo na njenu centralnu ulogu u ovoj cikličnoj strukturi.
+
+Uz skriptu 04 identifikovano je devet jedinstvenih parova poziva metoda. 
+
+"Snažno povezane komponente" predstavljaju grupu klasa u kojima postoji usmerena putana između svih klasa međusobno. (skripta 05). 
+
+Od 55 pronađenih klasa u grafu međuklasnih poziva, četiri pripadaju pronađenoj cikličnoj komponenti, dok preostalih 51 nisu deo višeklasne ciklične komponente.
+
+Nakon identifikacije, detaljnije je analizirana klasa RightPanelController. Ova klasa ima najveći broj ulaznih veza među četiri posmatrana kontrolera. 
+
+* Da li bi dodavanje novih ekrana "preopteretilo" ovu klasu? Da li bi bilo praktičnije dodavanje interfejsa?
+
+Nije dokazan funkcionalni problem, ali identifikuju konkretan arhitekturni obrazac relevantan za kasnije održavanje, testiranje i proširivanje.. 
+
+## Poređenje sa starijom verzijom
+
+Bookverse repozitorijum ima istoriju od približno 300 commita. Radi uporednog pregleda i analize, pristupljeno je jednoj starijoj verziji koda (ne i zvaničnoj verziji aplikacije) - `git log --oneline --all`
+
+`models/bookverse-old-model.json`
+
+`models/bookverse-model.json`
+
+...
 
 ### Beleške za dalje
 - Da li u Bookverse aplikaciji postoje ciklične zavisnosti (klase/paketi) i kako su različite verzije projekta uticale na njih
