@@ -28,14 +28,16 @@ Prvi korak - ispitivanje poziva metoda paketa controller -> service -> dao
 Primer upita za izdvajanje jednog poziva, izvršeno nad grupom Invocations.
 
 ![Pozivi kontrolera ka servisnom sloju](screenshots/controller-service-invocations.png)
+[08 – Arhitekturni slojevi](scripts/08-arhitekturni-slojevi.st)
 
-U ovom momentu analize rezultat je u skladu sa očekivanom organizacijom aplikacije (controller->service->dao, bez uočenih direktnih poziva kontrolera ka metodama, kao ni povratnih poziva među slojevima)
+U ovom momentu analize rezultat je u skladu sa očekivanom organizacijom aplikacije (controller->service->dao), bez direktnih poziva kontrolera ka DAO metodama
 
 
 ## Analiza na nivou klasa i metoda
 Ispitano je koje controller klase imaju najviše poziva ka service sloju.
 
 ![Broj poziva ka servisima po kontroleru](screenshots/controller-service-call-count.png)
+[09 – Kontroleri ka servisima](scripts/09-kontroleri-ka-servisima.st)
 
 `BookDetailController` ostvaruje 22 poziva ka 18 različitih servisnih metoda komunicirajući sa četiri servisne klase.
 
@@ -49,6 +51,7 @@ Dakle, ova dva kontrolera imaju gotovo jednak broj poziva, ali različitu širin
 U FAMIX modelu identifikovanao je 17 glavnih klasa čija imena sadrže Controller. Za njih je pronađeno ukupno 258 metoda.
 
 ![Raspodela metoda po kontrolerima](screenshots/controller-methods.png)
+[10 – Veličina kontrolera](scripts/10-velicina-kontrolera.st)
 
 Tri najveća kontrolera (BookDetailController, BookManagmentController i AccountManagementController) sadrže ukupno 121 od 258 metoda, odnosno približno 47% metoda svih posmatranih kontrolera. Naravno, još uvek nije dokaz preopterećenosti ili otežane održivosti.
 
@@ -73,6 +76,9 @@ Od 55 pronađenih klasa u grafu međuklasnih poziva, četiri pripadaju pronađen
 Nakon identifikacije, detaljnije je analizirana klasa RightPanelController. Ova klasa ima najveći broj ulaznih veza među četiri posmatrana kontrolera. 
 
 Nije dokazan funkcionalni problem, ali identifikuju konkretan arhitekturni obrazac relevantan za kasnije održavanje, testiranje i proširivanje.. 
+
+![Veze kontrolora](screenshots/cycle-v1.png)
+![Veze kontrolora](screenshots/cycle-v3.png)
 
 ## Poređenje sa starijim verzijama
 
@@ -102,6 +108,8 @@ Rezultati pokazuju povećanje broja klasa sa kojima su pojedini kontroleri povez
 
 Ova metrika ne dokazuje problem u dizajnu, već pomaže pri identifikaciji klasa čije promene potencijalno mogu zahtevati proveru većeg broja povezanih komponenti.
 
+Unija ulaznih i izlaznih klasa:
+[13 – ukupna povezanost](scripts/13-povezanost-kontrolera-unija.st)
 
 ## Kohezija klasa
 
@@ -115,6 +123,9 @@ BookManagementController raste sa 10 na 40 mestoda, dok udeo parova metoda koji 
 
 Ovi obrasci ukazuju na kandidate za proveru raspodele odgovornosti, ne dokazujući "God class".
 
+[11 – Kohezija kandidata](scripts/11-kohezija-kandidata.st)
+
+
 ## Roassal vizualizacija
 
 Roassal mapa prikazuje klase iz paketa controller i service sa više od jedne metode (anonimne klase sa jednom metodom izostavljene u prikazu radi čitljivosti). Svaki pravougaonik sadrži ime, broj metoda i procenat povezanih parova.
@@ -123,7 +134,13 @@ Roassal mapa prikazuje klase iz paketa controller i service sa više od jedne me
 - Narandžasto: najmanje 15 metoda i manje od 30% povezanih parova
 - Zelena: Ostalo
 
-*slike*
+[12 – Roassal mapa](scripts/12-roassal-kohezija.st)
+
+![Roassal mapa V1](screenshots/kohezija-v1.png)
+
+![Roassal mapa V2](screenshots/kohezija-v2.png)
+
+![Roassal mapa V3](screenshots/kohezija-v3.png)
 
 ## Zaključak
 
